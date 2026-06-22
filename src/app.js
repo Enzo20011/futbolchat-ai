@@ -157,7 +157,7 @@ export function renderHome() {
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-badge">
           <span class="badge-dot" aria-hidden="true"></span>
-          Powered by Groq AI
+          Powered by Google Gemini
         </div>
         <h1 class="hero-title" id="hero-title">
           <span class="hero-line">Chateá con</span>
@@ -241,7 +241,7 @@ export function renderAbout() {
           <div class="about-icon" aria-hidden="true">🤖</div>
           <h2 class="about-card-title">Inteligencia Artificial</h2>
           <p class="about-card-text">
-            Usamos Groq API con LLaMA 3.1 para generar respuestas naturales
+            Usamos la API de Google Gemini para generar respuestas precisas y naturales
             que simulan la personalidad de cada jugador con system prompts únicos.
           </p>
         </article>
@@ -294,7 +294,7 @@ export function renderAbout() {
           <span class="tech-tag">🎨 CSS3 Vanilla</span>
           <span class="tech-tag">⚡ JavaScript ES Modules</span>
           <span class="tech-tag">🔀 History API</span>
-          <span class="tech-tag">🤖 Groq API (LLaMA 3.1)</span>
+          <span class="tech-tag">🤖 Google Gemini 2.5</span>
           <span class="tech-tag">☁️ Vercel Functions</span>
           <span class="tech-tag">📡 Fetch API</span>
           <span class="tech-tag">💾 localStorage</span>

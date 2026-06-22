@@ -149,10 +149,10 @@ describe('renderHome', () => {
     expect(app.innerHTML).toContain('/chat/neymar');
   });
 
-  it('contiene el badge de Groq AI', () => {
+  it('contiene el badge de Google Gemini', () => {
     renderHome();
     const app = document.getElementById('app');
-    expect(app.innerHTML).toContain('Groq AI');
+    expect(app.innerHTML).toContain('Google Gemini');
   });
 });
 
@@ -167,10 +167,10 @@ describe('renderAbout', () => {
     expect(app.innerHTML).toContain('Proyecto');
   });
 
-  it('incluye información sobre Groq y Vercel', () => {
+  it('incluye información sobre Gemini y Vercel', () => {
     renderAbout();
     const app = document.getElementById('app');
-    expect(app.innerHTML).toContain('Groq');
+    expect(app.innerHTML).toContain('Gemini');
     expect(app.innerHTML).toContain('Vercel');
   });
 
