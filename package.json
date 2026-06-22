@@ -1,0 +1,19 @@
+{
+  "name": "futbolchat-ai",
+  "version": "1.0.0",
+  "description": "SPA para chatear con estrellas del fútbol usando Groq AI y Vercel Functions",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui"
+  },
+  "devDependencies": {
+    "vitest": "^1.6.0",
+    "jsdom": "^24.1.0",
+    "@vitest/coverage-v8": "^1.6.0"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
