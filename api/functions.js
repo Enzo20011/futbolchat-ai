@@ -1,7 +1,7 @@
 /**
  * api/functions.js – Vercel Serverless Function
  *
- * Actúa como proxy seguro entre el cliente y la API de Groq.
+ * Actúa como proxy seguro entre el cliente y la API de Gemini.
  * La API key NUNCA se expone al navegador: vive sólo en las
  * variables de entorno del servidor (Vercel o .env.local).
  *
@@ -47,37 +47,43 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: `Personaje "${characterId}" no encontrado` });
   }
 
-  const apiKey = process.env.GROQ_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: 'API key no configurada en el servidor' });
+    return res.status(500).json({ error: 'API key de Gemini no configurada en el servidor' });
   }
 
+  // Formatear mensajes para la API de Gemini
+  const geminiContents = messages.map(msg => ({
+    role: msg.role === 'assistant' ? 'model' : 'user',
+    parts: [{ text: msg.content }]
+  }));
+
   try {
-    const groqResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    const geminiResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'llama-3.1-8b-instant',
-        messages: [
-          { role: 'system', content: systemPrompt },
-          ...messages,
-        ],
-        max_tokens: 300,
-        temperature: 0.70,
+        systemInstruction: {
+          parts: [{ text: systemPrompt }]
+        },
+        contents: geminiContents,
+        generationConfig: {
+          maxOutputTokens: 300,
+          temperature: 0.70,
+        }
       }),
     });
 
-    if (!groqResponse.ok) {
-      const errorData = await groqResponse.json().catch(() => ({}));
-      const errorMsg = errorData?.error?.message || `Error de Groq: ${groqResponse.status}`;
+    if (!geminiResponse.ok) {
+      const errorData = await geminiResponse.json().catch(() => ({}));
+      const errorMsg = errorData?.error?.message || `Error de Gemini: ${geminiResponse.status}`;
       return res.status(502).json({ error: errorMsg });
     }
 
-    const data = await groqResponse.json();
-    const reply = data?.choices?.[0]?.message?.content;
+    const data = await geminiResponse.json();
+    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
     if (!reply) {
       return res.status(502).json({ error: 'La IA no devolvió una respuesta válida' });
