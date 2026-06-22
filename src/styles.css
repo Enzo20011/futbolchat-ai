@@ -38,6 +38,11 @@ img, video { display: block; max-width: 100%; }
 
   --navbar-bg: rgba(5,5,20,0.80);
   --shadow:    rgba(0,0,0,0.50);
+  
+  --chat-sidebar-bg: rgba(5,5,20,.55);
+  --chat-main-bg:    rgba(5,5,15,.35);
+  --chat-header-bg:  rgba(5,5,20,.50);
+  --chat-form-bg:    rgba(5,5,20,.55);
 
   --font-h: 'Outfit', sans-serif;
   --font-b: 'Inter', sans-serif;
@@ -53,20 +58,25 @@ img, video { display: block; max-width: 100%; }
 
 /* ── Light Mode ── */
 [data-theme="light"] {
-  --bg:            #f0f2f8;
+  --bg:            #f4f7fb;
   --bg2:           #ffffff;
-  --surface:       rgba(0,0,0,0.03);
-  --surface-hover: rgba(0,0,0,0.06);
-  --border:        rgba(0,0,0,0.08);
-  --border-hover:  rgba(0,0,0,0.20);
-  --text:          #0a0a1f;
-  --text-muted:    rgba(10,10,31,0.55);
-  --text-dim:      rgba(10,10,31,0.30);
-  --navbar-bg:     rgba(240,242,248,0.88);
-  --shadow:        rgba(0,0,0,0.12);
-  --glow1: rgba(0,230,118,0.06);
-  --glow2: rgba(79,172,254,0.06);
-  --glow3: rgba(255,215,0,0.05);
+  --surface:       rgba(255, 255, 255, 0.75);
+  --surface-hover: rgba(255, 255, 255, 1);
+  --border:        rgba(15, 23, 42, 0.08);
+  --border-hover:  rgba(15, 23, 42, 0.18);
+  --text:          #0f172a;
+  --text-muted:    #475569;
+  --text-dim:      #94a3b8;
+  --navbar-bg:     rgba(244, 247, 251, 0.85);
+  --shadow:        rgba(15, 23, 42, 0.06);
+  --glow1: rgba(0,230,118,0.15);
+  --glow2: rgba(79,172,254,0.15);
+  --glow3: rgba(255,215,0,0.15);
+
+  --chat-sidebar-bg: rgba(255,255,255,.60);
+  --chat-main-bg:    rgba(244,247,251,.40);
+  --chat-header-bg:  rgba(255,255,255,.70);
+  --chat-form-bg:    rgba(255,255,255,.70);
 }
 
 /* =========================================================
@@ -415,7 +425,7 @@ body {
   display: none;  /* oculto en mobile */
   flex-direction: column;
   gap: 0;
-  background: rgba(5,5,20,.55);
+  background: var(--chat-sidebar-bg);
   border-right: 1px solid var(--border);
   padding: 1.5rem 1.25rem;
   overflow-y: auto;
@@ -502,7 +512,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: rgba(5,5,15,.35);
+  background: var(--chat-main-bg);
 }
 
 /* Chat Header */
@@ -512,7 +522,7 @@ body {
   gap: .75rem;
   padding: .75rem 1rem;
   border-bottom: 1px solid var(--border);
-  background: rgba(5,5,20,.5);
+  background: var(--chat-header-bg);
   backdrop-filter: blur(12px);
   flex-shrink: 0;
 }
@@ -706,7 +716,7 @@ body {
 .chat-form {
   padding: .75rem 1rem;
   border-top: 1px solid var(--border);
-  background: rgba(5,5,20,.55);
+  background: var(--chat-form-bg);
   backdrop-filter: blur(12px);
   flex-shrink: 0;
 }
