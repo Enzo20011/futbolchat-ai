@@ -8,7 +8,7 @@ SPA desarrollada para el **Proyecto Integrador – PIM3 Full Stack**.
 
 ## 🌐 Link a la aplicación desplegada
 
-> _[Completar después del deploy en Vercel]_
+👉 **[https://futbolchat-ai.vercel.app](https://futbolchat-ai.vercel.app)**
 
 ---
 
