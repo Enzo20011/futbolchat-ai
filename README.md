@@ -14,11 +14,11 @@ SPA desarrollada para el **Proyecto Integrador – PIM3 Full Stack**.
 
 ## 👥 Los Personajes
 
-| Jugador | Apodo | País | Descripción |
-|---|---|---|---|
-| **Lionel Messi** | La Pulga 🐐 | 🇦🇷 Argentina | 8 Balones de Oro, Campeón del Mundo 2022. Habla con modismos rioplatenses. |
+| Jugador           | Apodo      | País          | Descripción                                                                       |
+| ----------------- | ---------- | ------------- | --------------------------------------------------------------------------------- |
+| **Lionel Messi**  | La Pulga 🐐 | 🇦🇷 Argentina | 8 Balones de Oro, Campeón del Mundo 2022. Habla con modismos rioplatenses.        |
 | **Cristiano Ronaldo** | CR7 💪 | 🇵🇹 Portugal | 5 Balones de Oro, máximo goleador de la historia. Seguro de sí mismo, dice SIUUUU. |
-| **Neymar Jr.** | NJR ⚡ | 🇧🇷 Brasil | Campeón Olímpico, el jogo bonito. Alegre, mezcla palabras en portugués. |
+| **Neymar Jr.**    | NJR ⚡      | 🇧🇷 Brasil    | Campeón Olímpico, el jogo bonito. Alegre, mezcla palabras en portugués.           |
 
 Cada personaje tiene un **system prompt único** que define su personalidad, forma de hablar y conocimiento. Los prompts solo viven en el servidor (Vercel Function) y nunca se exponen al cliente.
 
@@ -28,7 +28,7 @@ Cada personaje tiene un **system prompt único** que define su personalidad, for
 
 - **Frontend:** HTML5 semántico · CSS3 Vanilla (mobile-first) · JavaScript ES Modules
 - **Routing:** History API (`pushState` / `popstate`)
-- **IA:** [Groq API](https://console.groq.com) — modelo `llama-3.1-8b-instant`
+- **IA:** [Google Gemini API](https://ai.google.dev) — modelo `gemini-2.5-flash`
 - **Backend seguro:** Vercel Serverless Functions (`/api/functions.js`)
 - **Persistencia:** `localStorage` para historial de conversación
 - **Tests:** Vitest + jsdom
@@ -38,12 +38,11 @@ Cada personaje tiene un **system prompt único** que define su personalidad, for
 
 ## 📁 Estructura del Proyecto
 
-```
+```text
 /
 ├── api/
-│   └── functions.js        ← Vercel Serverless Function (proxy seguro a Groq)
+│   └── functions.js        ← Vercel Serverless Function (proxy seguro a Gemini)
 ├── src/
-│   ├── index.html          → está en raíz (ver abajo)
 │   ├── styles.css          ← diseño completo, dark/light mode, mobile-first
 │   ├── app.js              ← Router (History API) + vistas Home y About + tema
 │   ├── chat.js             ← lógica del chat, fetch, localStorage
@@ -65,7 +64,7 @@ Cada personaje tiene un **system prompt único** que define su personalidad, for
 
 - [Node.js](https://nodejs.org) ≥ 18
 - [Vercel CLI](https://vercel.com/docs/cli): `npm install -g vercel`
-- Una API key de [Groq](https://console.groq.com) (gratuita)
+- Una API key de [Google AI Studio](https://aistudio.google.com) (gratuita)
 
 ---
 
@@ -90,8 +89,8 @@ npm install
 # Copiá el archivo de ejemplo
 cp .env.example .env.local
 
-# Abrí .env.local y pegá tu API key de Groq
-# GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxx
+# Abrí .env.local y pegá tu API key de Google AI Studio
+# GEMINI_API_KEY=AIza_xxxxxxxxxxxxxxxx
 ```
 
 ### 4. Iniciar el servidor de desarrollo
@@ -102,7 +101,7 @@ vercel dev
 
 La aplicación estará disponible en `http://localhost:3000`.
 
-> **¿Por qué `vercel dev` y no un simple servidor HTTP?**  
+> **¿Por qué `vercel dev` y no un simple servidor HTTP?**
 > Porque necesitamos que las Serverless Functions de `/api/` también corran localmente.
 > `vercel dev` levanta tanto los archivos estáticos como las functions en un solo comando.
 
@@ -149,13 +148,14 @@ vercel --prod
 
 En el **Dashboard de Vercel** → tu proyecto → **Settings** → **Environment Variables**:
 
-| Variable | Valor |
-|---|---|
-| `GROQ_API_KEY` | tu API key de Groq |
+| Variable          | Valor                          |
+| ----------------- | ------------------------------ |
+| `GEMINI_API_KEY`  | tu API key de Google AI Studio |
 
 O por CLI:
+
 ```bash
-vercel env add GROQ_API_KEY
+vercel env add GEMINI_API_KEY
 ```
 
 ---
@@ -163,6 +163,7 @@ vercel env add GROQ_API_KEY
 ## ✨ Funcionalidades
 
 ### Mínimo requerido ✅
+
 - [x] SPA con 3 vistas: `/home`, `/chat/:personaje`, `/about`
 - [x] History API: URLs reales, back/forward del navegador
 - [x] Chat con diferenciación visual usuario vs personaje
@@ -175,6 +176,7 @@ vercel env add GROQ_API_KEY
 - [x] Al menos 4 tests unitarios con Vitest
 
 ### Extra Credit ✅
+
 - [x] **Extra 1:** Historial persistente en `localStorage` + botón "Borrar historial" + indicador visual
 - [x] **Extra 2:** Galería con 3 personajes distintos, cada uno con su propio system prompt
 - [x] **Extra 3:** Timestamps en mensajes · Botón copiar respuesta · Enter para enviar · Toggle dark/light mode
@@ -183,14 +185,14 @@ vercel env add GROQ_API_KEY
 
 ## 🤖 Registro del Uso de IA en el Proyecto
 
-| Tarea | Herramienta usada |
-|---|---|
-| Scaffolding inicial del proyecto | Antigravity IDE (AI coding assistant) |
-| System prompts de los personajes | Iteraciones propias + ajustes con IA |
-| CSS design system completo | Generado y refinado con asistencia de IA |
-| Lógica del Router (History API) | Desarrollada con guía de IA |
-| Tests unitarios | Generados con asistencia de IA, revisados manualmente |
-| README | Escrito con asistencia de IA |
+| Tarea                              | Herramienta usada                          |
+| ---------------------------------- | ------------------------------------------ |
+| Scaffolding inicial del proyecto   | Antigravity IDE (AI coding assistant)      |
+| System prompts de los personajes   | Iteraciones propias + ajustes con IA       |
+| CSS design system completo         | Generado y refinado con asistencia de IA   |
+| Lógica del Router (History API)    | Desarrollada con guía de IA                |
+| Tests unitarios                    | Generados con asistencia de IA, revisados manualmente |
+| README                             | Escrito con asistencia de IA               |
 
 ---
 

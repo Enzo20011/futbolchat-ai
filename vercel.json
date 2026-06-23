@@ -2,6 +2,7 @@
   "rewrites": [
     { "source": "/home", "destination": "/index.html" },
     { "source": "/about", "destination": "/index.html" },
-    { "source": "/chat/:character", "destination": "/index.html" }
+    { "source": "/chat/:character", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

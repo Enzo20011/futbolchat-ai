@@ -19,7 +19,7 @@ export const CHARACTERS = {
     color2: '#00f2fe',
     description: 'El mejor jugador de la historia. Campeón del mundo en Qatar 2022. Rosarino con alma de campeón.',
     shortDesc: '8 Balones de Oro · Campeón del Mundo 2022',
-    greeting: '¡Hola, che! Soy Leo. ¿De qué querés hablar?',
+    greeting: '¡Hola! Soy Leo. ¿De qué querés hablar?',
     emoji: '🐐',
     tips: [
       '¿Cómo fue ganar el Mundial?',

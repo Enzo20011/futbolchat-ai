@@ -4,7 +4,6 @@
 
 import {
   CHARACTERS,
-  escapeHtml,
   hasStoredHistory,
 } from './utils.js';
 import { renderChat } from './chat.js';
