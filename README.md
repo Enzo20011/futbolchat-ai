@@ -73,7 +73,7 @@ Cada personaje tiene un **system prompt único** que define su personalidad, for
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/futbolchat-ai.git
+git clone https://github.com/Enzo20011/futbolchat-ai.git
 cd futbolchat-ai
 ```
 
@@ -198,7 +198,7 @@ vercel env add GEMINI_API_KEY
 
 ## 📸 Capturas de Pantalla
 
-> _[Agregar capturas de pantalla aquí después del deploy]_
+La aplicación está disponible en: 👉 **[https://futbolchat-ai.vercel.app](https://futbolchat-ai.vercel.app)**
 
 ---
 
