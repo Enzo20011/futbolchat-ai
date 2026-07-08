@@ -184,11 +184,7 @@ export function renderAbout() {
     .map(
       (char) => `
     <div class="char-row">
-      <div class="char-row-avatar"
-           style="background: linear-gradient(135deg, ${char.color1}, ${char.color2})"
-           aria-hidden="true">
-        ${char.number}
-      </div>
+      <img src="${char.image}" class="char-row-avatar" alt="${char.name}">
       <div>
         <p class="char-row-name">${char.name}</p>
         <p class="char-row-desc">${char.shortDesc}</p>
