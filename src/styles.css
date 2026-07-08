@@ -739,7 +739,7 @@ body {
 .msg-user { flex-direction: row-reverse; margin-left: auto; }
 
 .msg-avatar {
-  width: 34px; height: 34px;
+  width: 36px; height: 36px;
   border-radius: var(--r-sm);
   background: var(--char-grad);
   display: flex;
@@ -750,6 +750,8 @@ body {
   font-weight: 900;
   color: #fff;
   flex-shrink: 0;
+  object-fit: cover;
+  object-position: top;
 }
 .msg-user .msg-avatar { background: linear-gradient(135deg,#667eea,#764ba2); }
 

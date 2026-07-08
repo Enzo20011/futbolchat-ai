@@ -280,7 +280,7 @@ async function _handleSendMessage(userMessage, characterId, character) {
     typingEl.remove();
     const assistantMsg = createMessageObject('assistant', reply);
     chatHistory.push(assistantMsg);
-    _appendMessage('assistant', reply, character.name, assistantMsg.timestamp, character.number);
+    _appendMessage('assistant', reply, character.name, assistantMsg.timestamp, character);
     _saveHistory(characterId);
 
   } catch (error) {
@@ -302,13 +302,17 @@ async function _handleSendMessage(userMessage, characterId, character) {
 /**
  * Agrega una burbuja de mensaje al contenedor
  */
-function _appendMessage(role, content, senderName, timestamp, charNumber) {
+function _appendMessage(role, content, senderName, timestamp, character) {
   const container = document.getElementById('messages');
   if (!container) return;
 
   const isUser  = role === 'user';
   const timeStr = formatTimestamp(timestamp || new Date().toISOString());
   const safeContent = escapeHtml(content).replace(/\n/g, '<br>');
+
+  const avatarHtml = isUser
+    ? `<div class="msg-avatar" aria-hidden="true">👤</div>`
+    : `<img src="${character?.image || ''}" class="msg-avatar" alt="Avatar">`;
 
   // Botón copiar solo para mensajes del personaje
   const copyBtnHtml = !isUser
@@ -321,9 +325,7 @@ function _appendMessage(role, content, senderName, timestamp, charNumber) {
   const el = document.createElement('div');
   el.className = `message ${isUser ? 'msg-user' : 'msg-char'}`;
   el.innerHTML = `
-    <div class="msg-avatar" aria-hidden="true">
-      ${isUser ? '👤' : (charNumber || '?')}
-    </div>
+    ${avatarHtml}
     <div class="msg-body">
       <div class="msg-meta">
         <span class="msg-sender">${escapeHtml(senderName)}</span>
@@ -354,7 +356,7 @@ function _showTypingIndicator(character) {
   el.id = 'typing-indicator';
   el.setAttribute('aria-label', `${character.name} está escribiendo`);
   el.innerHTML = `
-    <div class="msg-avatar" aria-hidden="true">${character.number}</div>
+    <img src="${character.image}" class="msg-avatar" alt="Avatar">
     <div class="msg-body">
       <div class="msg-meta">
         <span class="msg-sender">${character.name}</span>
@@ -436,7 +438,7 @@ function _loadHistoryFromStorage(characterId, character) {
     if (msg.role === 'user') {
       _appendMessage('user', msg.content, 'Vos', msg.timestamp, null);
     } else if (msg.role === 'assistant') {
-      _appendMessage('assistant', msg.content, character.name, msg.timestamp, character.number);
+      _appendMessage('assistant', msg.content, character.name, msg.timestamp, character);
     }
   });
 
