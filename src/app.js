@@ -162,22 +162,6 @@ export function renderHome() {
           Conversaciones reales con tus ídolos del fútbol gracias a la
           inteligencia artificial. Preguntales lo que siempre quisiste saber.
         </p>
-        <div class="hero-stats" aria-label="Estadísticas de la app">
-          <div class="stat">
-            <span class="stat-num">3</span>
-            <span class="stat-lbl">Estrellas</span>
-          </div>
-          <span class="stat-sep" aria-hidden="true">·</span>
-          <div class="stat">
-            <span class="stat-num">∞</span>
-            <span class="stat-lbl">Preguntas</span>
-          </div>
-          <span class="stat-sep" aria-hidden="true">·</span>
-          <div class="stat">
-            <span class="stat-num">IA</span>
-            <span class="stat-lbl">Real</span>
-          </div>
-        </div>
       </section>
 
       <!-- Galería de personajes -->
