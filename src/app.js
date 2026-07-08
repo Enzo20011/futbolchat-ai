@@ -160,7 +160,7 @@ export function renderHome() {
         </div>
         <h1 class="hero-title" id="hero-title">
           <span class="hero-line">Chateá con</span>
-          <span class="hero-gradient">las estrellas</span>
+          <span class="hero-gradient">las Leyendas 🏆</span>
         </h1>
         <p class="hero-sub">
           Conversaciones reales con tus ídolos del fútbol gracias a la

@@ -15,34 +15,34 @@ img, video { display: block; max-width: 100%; }
    ========================================================= */
 :root,
 [data-theme="dark"] {
-  --bg:            #05050f;
-  --bg2:           #0a0a1f;
+  --bg:            #061a0f;
+  --bg2:           #092616;
   --surface:       rgba(255,255,255,0.04);
-  --surface-hover: rgba(255,255,255,0.07);
-  --border:        rgba(255,255,255,0.08);
-  --border-hover:  rgba(255,255,255,0.18);
+  --surface-hover: rgba(255,255,255,0.08);
+  --border:        rgba(255,255,255,0.12);
+  --border-hover:  rgba(255,255,255,0.25);
 
-  --text:          #f0f0f8;
-  --text-muted:    rgba(240,240,248,0.55);
-  --text-dim:      rgba(240,240,248,0.28);
+  --text:          #f0fcf4;
+  --text-muted:    rgba(240,252,244,0.65);
+  --text-dim:      rgba(240,252,244,0.30);
 
-  --green:         #00e676;
-  --green-dark:    #00b248;
-  --green-glow:    rgba(0,230,118,0.25);
-  --gold:          #ffd700;
-  --gold-glow:     rgba(255,215,0,0.25);
+  --green:         #00ff66;
+  --green-dark:    #00cc52;
+  --green-glow:    rgba(0,255,102,0.30);
+  --gold:          #e8ff00;
+  --gold-glow:     rgba(232,255,0,0.30);
 
-  --glow1: rgba(0,230,118,0.10);
-  --glow2: rgba(79,172,254,0.09);
-  --glow3: rgba(255,215,0,0.07);
+  --glow1: rgba(0,255,102,0.12);
+  --glow2: rgba(232,255,0,0.08);
+  --glow3: rgba(255,255,255,0.05);
 
-  --navbar-bg: rgba(5,5,20,0.80);
-  --shadow:    rgba(0,0,0,0.50);
+  --navbar-bg: rgba(6,26,15,0.85);
+  --shadow:    rgba(0,0,0,0.60);
   
-  --chat-sidebar-bg: rgba(5,5,20,.55);
-  --chat-main-bg:    rgba(5,5,15,.35);
-  --chat-header-bg:  rgba(5,5,20,.50);
-  --chat-form-bg:    rgba(5,5,20,.55);
+  --chat-sidebar-bg: rgba(6,26,15,.70);
+  --chat-main-bg:    rgba(9,38,22,.45);
+  --chat-header-bg:  rgba(6,26,15,.70);
+  --chat-form-bg:    rgba(6,26,15,.75);
 
   --font-h: 'Outfit', sans-serif;
   --font-b: 'Inter', sans-serif;
@@ -58,25 +58,25 @@ img, video { display: block; max-width: 100%; }
 
 /* ── Light Mode ── */
 [data-theme="light"] {
-  --bg:            #f4f7fb;
+  --bg:            #e8f5ed;
   --bg2:           #ffffff;
-  --surface:       rgba(255, 255, 255, 0.75);
+  --surface:       rgba(255, 255, 255, 0.85);
   --surface-hover: rgba(255, 255, 255, 1);
-  --border:        rgba(15, 23, 42, 0.08);
-  --border-hover:  rgba(15, 23, 42, 0.18);
-  --text:          #0f172a;
-  --text-muted:    #475569;
-  --text-dim:      #94a3b8;
-  --navbar-bg:     rgba(244, 247, 251, 0.85);
-  --shadow:        rgba(15, 23, 42, 0.06);
-  --glow1: rgba(0,230,118,0.15);
-  --glow2: rgba(79,172,254,0.15);
-  --glow3: rgba(255,215,0,0.15);
+  --border:        rgba(6, 26, 15, 0.10);
+  --border-hover:  rgba(6, 26, 15, 0.20);
+  --text:          #061a0f;
+  --text-muted:    #2e543e;
+  --text-dim:      #6c967f;
+  --navbar-bg:     rgba(232, 245, 237, 0.90);
+  --shadow:        rgba(6, 26, 15, 0.08);
+  --glow1: rgba(0,255,102,0.20);
+  --glow2: rgba(232,255,0,0.15);
+  --glow3: rgba(255,255,255,0.40);
 
-  --chat-sidebar-bg: rgba(255,255,255,.60);
-  --chat-main-bg:    rgba(244,247,251,.40);
-  --chat-header-bg:  rgba(255,255,255,.70);
-  --chat-form-bg:    rgba(255,255,255,.70);
+  --chat-sidebar-bg: rgba(255,255,255,.70);
+  --chat-main-bg:    rgba(232,245,237,.60);
+  --chat-header-bg:  rgba(255,255,255,.80);
+  --chat-form-bg:    rgba(255,255,255,.85);
 }
 
 /* =========================================================
@@ -87,6 +87,10 @@ html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-b);
   background: var(--bg);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 60%),
+    repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(0,0,0,0.025) 60px, rgba(0,0,0,0.025) 120px);
+  background-attachment: fixed;
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
@@ -249,15 +253,21 @@ body {
 }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
 
-.hero-title {
+.hero h1 {
   font-family: var(--font-h);
-  font-size: clamp(2.4rem, 8vw, 5rem);
+  font-size: clamp(3rem, 7vw, 5rem);
   font-weight: 900;
-  line-height: 1.08;
-  margin-bottom: 1.5rem;
-  animation: fade-up .6s ease .08s both;
+  font-style: italic;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #fff 30%, var(--green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 8px 30px var(--green-glow);
+  transform: skewX(-5deg);
 }
-.hero-line { display: block; }
 .hero-gradient {
   display: block;
   background: linear-gradient(135deg, var(--green) 0%, var(--gold) 50%, #ff6b9d 100%);
@@ -316,19 +326,32 @@ body {
 
 /* ── Character Card ── */
 .char-card {
-  position: relative;
   background: var(--surface);
+  /* Tactical mesh pattern */
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 16px 16px;
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
-  padding: 1.75rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  text-decoration: none;
-  color: inherit;
-  transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base), background var(--t-base);
-  animation: fade-up .6s ease both;
+  gap: 1.25rem;
+  position: relative;
+  transition: all var(--t-base) cubic-bezier(0.2, 0.8, 0.2, 1);
   overflow: hidden;
+}
+.char-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(145deg, transparent, rgba(0,0,0,0.2) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+.char-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--green);
+  box-shadow: 0 15px 40px -10px var(--green-glow);
 }
 .char-card::after {
   content: '';
@@ -340,12 +363,6 @@ body {
   transition: opacity var(--t-base);
   pointer-events: none;
 }
-.char-card:hover {
-  transform: translateY(-6px);
-  border-color: transparent;
-  box-shadow: 0 20px 60px var(--shadow), 0 0 40px var(--char-glow, rgba(0,0,0,.2));
-  background: var(--surface-hover);
-}
 
 /* Per-card accent colors */
 .card-messi    { --char-grad: linear-gradient(135deg,#4facfe,#00f2fe); --char-glow: rgba(79,172,254,.25); }
@@ -354,7 +371,7 @@ body {
 
 .card-avatar {
   width: 90px; height: 90px;
-  border-radius: var(--r-lg);
+  border-radius: var(--r-md);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -362,7 +379,15 @@ body {
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
-  background: var(--char-grad);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+.card-avatar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0, rgba(255,255,255,0.06) 2px, transparent 2px, transparent 12px);
+  border-radius: inherit;
+  z-index: 0;
 }
 .card-avatar::after {
   content: '';
@@ -896,24 +921,31 @@ body {
 .not-found-title { font-family: var(--font-h); font-size: 2.5rem; font-weight: 900; }
 .not-found-text { color: var(--text-muted); }
 
-/* ── Primary button ── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: .5rem;
-  padding: .65rem 1.5rem;
-  background: linear-gradient(135deg, var(--green), var(--green-dark));
-  color: #000;
+  padding: .75rem 1.75rem;
+  background: var(--green);
+  color: #061a0f;
   font-family: var(--font-h);
-  font-weight: 700;
-  font-size: .9rem;
-  border-radius: var(--r-full);
+  font-weight: 800;
+  font-style: italic;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transform: skewX(-10deg);
   text-decoration: none;
   border: none;
   cursor: pointer;
-  transition: transform var(--t-base), box-shadow var(--t-base);
+  transition: all var(--t-base);
+  box-shadow: 0 4px 15px var(--green-glow);
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--green-glow); }
+.btn-primary:hover { 
+  transform: skewX(-10deg) translateY(-2px); 
+  background: var(--gold);
+  box-shadow: 0 8px 24px var(--gold-glow); 
+}
 
 /* =========================================================
    ANIMATIONS
