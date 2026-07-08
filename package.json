@@ -4,6 +4,7 @@
   "description": "SPA para chatear con estrellas del fútbol usando Groq AI y Vercel Functions",
   "type": "module",
   "scripts": {
+    "build": "echo no-build-needed",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ui": "vitest --ui"
