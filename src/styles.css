@@ -158,20 +158,25 @@ body {
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: .25rem;
   text-decoration: none;
   font-family: var(--font-h);
-  font-weight: 700;
-  font-size: 1.15rem;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  font-size: 1.4rem;
   color: var(--text);
-  transition: opacity var(--t-fast);
+  transform: skewX(-5deg);
+  transition: transform var(--t-fast);
 }
-.navbar-logo:hover { opacity: .8; }
+.navbar-logo:hover { transform: skewX(-5deg) scale(1.03); }
 
-.logo-icon { font-size: 1.4rem; animation: spin-slow 12s linear infinite; }
-@keyframes spin-slow { to { transform: rotate(360deg); } }
-
-.logo-ai { color: var(--green); font-weight: 900; }
+.logo-ai { 
+  background: linear-gradient(135deg, var(--green), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px var(--green-glow);
+}
 
 .navbar-links {
   display: flex;
