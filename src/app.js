@@ -122,7 +122,7 @@ export function renderHome() {
         <div class="card-avatar"
              style="background: linear-gradient(135deg, ${char.color1}, ${char.color2})"
              aria-hidden="true">
-          ${char.image ? `<img src="${char.image}" alt="${char.name}" class="card-photo" loading="lazy">` : ''}
+          ${char.image ? `<img src="${char.image}" alt="${char.name}" class="card-photo" loading="lazy" onerror="this.style.display='none'">` : ''}
           <span class="card-num">${char.number}</span>
           <span class="card-flag">${char.nationality}</span>
         </div>
