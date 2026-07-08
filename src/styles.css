@@ -863,9 +863,17 @@ body {
 .about-hero { text-align: center; padding: 4rem 0 3rem; }
 .about-title {
   font-family: var(--font-h);
-  font-size: clamp(1.9rem, 5vw, 3rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
   margin-bottom: 1rem;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--hero-title-start) 30%, var(--hero-title-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 8px 30px var(--green-glow);
+  transform: skewX(-5deg);
 }
 .text-accent { color: var(--green); }
 .about-sub {
@@ -884,12 +892,30 @@ body {
 }
 .about-card {
   background: var(--surface);
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 16px 16px;
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
   padding: 1.5rem;
-  transition: all var(--t-base);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--t-base) cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-.about-card:hover { background: var(--surface-hover); border-color: var(--border-hover); transform: translateY(-3px); }
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(145deg, transparent, rgba(0,0,0,0.2) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+.about-card:hover { 
+  background: var(--surface); 
+  border-color: var(--green); 
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 40px -10px var(--green-glow);
+}
+.about-card > * { position: relative; z-index: 1; }
 .about-icon { font-size: 1.75rem; margin-bottom: .75rem; }
 .about-card-title { font-family: var(--font-h); font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
 .about-card-text { color: var(--text-muted); font-size: .85rem; line-height: 1.7; }
@@ -912,13 +938,16 @@ body {
 
 .tech-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
 .tech-tag {
-  padding: .3rem .8rem;
-  background: rgba(0,230,118,.07);
-  border: 1px solid rgba(0,230,118,.18);
-  border-radius: var(--r-full);
+  padding: .4rem 1rem;
+  background: var(--green-glow);
+  border: 1px solid var(--green);
+  border-radius: 4px;
   font-size: .8rem;
+  font-weight: 800;
+  font-style: italic;
+  text-transform: uppercase;
   color: var(--green);
-  font-weight: 500;
+  transform: skewX(-10deg);
 }
 
 .chars-list-about { display: flex; flex-direction: column; gap: .75rem; }

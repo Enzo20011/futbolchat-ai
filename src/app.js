@@ -213,7 +213,7 @@ export function renderAbout() {
 
       <div class="about-grid">
         <article class="about-card">
-          <div class="about-icon" aria-hidden="true">🤖</div>
+
           <h2 class="about-card-title">Inteligencia Artificial</h2>
           <p class="about-card-text">
             Usamos la API de Google Gemini para generar respuestas precisas y naturales
@@ -221,7 +221,7 @@ export function renderAbout() {
           </p>
         </article>
         <article class="about-card">
-          <div class="about-icon" aria-hidden="true">🔒</div>
+
           <h2 class="about-card-title">Seguridad</h2>
           <p class="about-card-text">
             Las llamadas a la API se realizan desde una Vercel Serverless Function.
@@ -229,7 +229,7 @@ export function renderAbout() {
           </p>
         </article>
         <article class="about-card">
-          <div class="about-icon" aria-hidden="true">⚡</div>
+
           <h2 class="about-card-title">SPA con History API</h2>
           <p class="about-card-text">
             Navegación sin recargas implementada con <code>pushState</code> / <code>popstate</code>.
@@ -237,7 +237,7 @@ export function renderAbout() {
           </p>
         </article>
         <article class="about-card">
-          <div class="about-icon" aria-hidden="true">📱</div>
+
           <h2 class="about-card-title">Mobile-First</h2>
           <p class="about-card-text">
             Diseño responsive con CSS puro: Flexbox, Grid y media queries.
