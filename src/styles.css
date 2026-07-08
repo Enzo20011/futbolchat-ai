@@ -25,6 +25,9 @@ img, video { display: block; max-width: 100%; }
   --text:          #f0fcf4;
   --text-muted:    rgba(240,252,244,0.65);
   --text-dim:      rgba(240,252,244,0.30);
+  
+  --hero-title-start: #ffffff;
+  --hero-title-end:   var(--green);
 
   --green:         #00ff66;
   --green-dark:    #00cc52;
@@ -67,6 +70,9 @@ img, video { display: block; max-width: 100%; }
   --text:          #061a0f;
   --text-muted:    #2e543e;
   --text-dim:      #6c967f;
+
+  --hero-title-start: #061a0f;
+  --hero-title-end:   #00cc52;
   --navbar-bg:     rgba(232, 245, 237, 0.90);
   --shadow:        rgba(6, 26, 15, 0.08);
   --glow1: rgba(0,255,102,0.20);
@@ -262,7 +268,7 @@ body {
   line-height: 1.05;
   margin-bottom: 1rem;
   letter-spacing: -0.04em;
-  background: linear-gradient(135deg, #fff 30%, var(--green));
+  background: linear-gradient(135deg, var(--hero-title-start) 30%, var(--hero-title-end));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 8px 30px var(--green-glow);

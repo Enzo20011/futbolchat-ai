@@ -154,10 +154,6 @@ export function renderHome() {
 
       <!-- Hero -->
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-badge">
-          <span class="badge-dot" aria-hidden="true"></span>
-          Powered by Google Gemini
-        </div>
         <h1 class="hero-title" id="hero-title">
           <span class="hero-line">Chateá con</span>
           <span class="hero-gradient">las Leyendas 🏆</span>
