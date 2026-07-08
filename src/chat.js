@@ -130,8 +130,7 @@ export function renderChat(characterId, router) {
         <div class="messages-area" id="messages" role="log" aria-live="polite" aria-label="Conversación">
           <div class="chat-welcome" id="chat-welcome" aria-label="Mensaje de bienvenida">
             <div class="welcome-avatar" aria-hidden="true">
-              ${character.image ? `<img src="${character.image}" alt="${character.name}" class="card-photo" loading="lazy" onerror="this.style.display='none'">` : ''}
-              <span>${character.number}</span>
+              ${character.image ? `<img src="${character.image}" alt="${character.name}">` : `<span>${character.number}</span>`}
             </div>
             <h3 class="welcome-title">¡Hola! Soy ${character.name}</h3>
             <p class="welcome-greeting">${character.greeting}</p>
