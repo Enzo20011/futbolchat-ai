@@ -533,6 +533,7 @@ body {
 
 .sidebar-avatar {
   width: 72px; height: 72px;
+  min-width: 72px;
   border-radius: var(--r-md);
   background: var(--char-grad);
   display: flex;
@@ -655,6 +656,7 @@ body {
 
 .chat-header-avatar {
   width: 36px; height: 36px;
+  min-width: 36px;
   border-radius: 50%;
   background: var(--char-grad);
   display: flex;
@@ -714,6 +716,7 @@ body {
 }
 .welcome-avatar {
   width: 80px; height: 80px;
+  min-width: 80px;
   border-radius: var(--r-md);
   background: var(--char-grad);
   display: flex;
@@ -758,6 +761,7 @@ body {
 
 .msg-avatar {
   width: 36px; height: 36px;
+  min-width: 36px;
   border-radius: var(--r-sm);
   background: var(--char-grad);
   display: flex;
@@ -1020,6 +1024,7 @@ body {
 .char-row { display: flex; align-items: center; gap: .75rem; }
 .char-row-avatar {
   width: 44px; height: 44px;
+  min-width: 44px;
   border-radius: var(--r-sm);
   display: flex;
   align-items: center;
