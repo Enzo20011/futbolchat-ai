@@ -158,10 +158,6 @@ export function renderHome() {
           <span class="hero-line">Chateá con</span>
           <span class="hero-gradient">las Leyendas 🏆</span>
         </h1>
-        <p class="hero-sub">
-          Conversaciones reales con tus ídolos del fútbol gracias a la
-          inteligencia artificial. Preguntales lo que siempre quisiste saber.
-        </p>
       </section>
 
       <!-- Galería de personajes -->
