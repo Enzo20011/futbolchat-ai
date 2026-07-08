@@ -59,8 +59,7 @@ export function renderChat(characterId, router) {
         </a>
 
         <div class="sidebar-avatar" aria-hidden="true">
-          ${character.image ? `<img src="${character.image}" alt="${character.name}" class="card-photo" loading="lazy" onerror="this.style.display='none'">` : ''}
-          <span class="sidebar-num">${character.number}</span>
+          ${character.image ? `<img src="${character.image}" alt="${character.name}">` : `<span class="sidebar-num">${character.number}</span>`}
         </div>
 
         <h2 class="sidebar-name">${character.name}</h2>
@@ -111,8 +110,7 @@ export function renderChat(characterId, router) {
         <header class="chat-header">
           <button class="btn-mobile-back" id="btn-back-mobile" aria-label="Volver">←</button>
           <div class="chat-header-avatar" aria-hidden="true">
-            ${character.image ? `<img src="${character.image}" alt="${character.name}" class="card-photo" loading="lazy" onerror="this.style.display='none'">` : ''}
-            <span>${character.number}</span>
+            ${character.image ? `<img src="${character.image}" alt="${character.name}">` : `<span>${character.number}</span>`}
           </div>
           <div class="chat-header-info">
             <p class="chat-header-name">${character.name}</p>
