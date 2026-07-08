@@ -380,6 +380,8 @@ body {
   object-position: center top;
   display: block;
   z-index: 1;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 .card-num  { font-family: var(--font-h); font-size: 2rem; font-weight: 900; color: #fff; line-height: 1; }
 .card-flag { font-size: 1.1rem; position: absolute; top: .35rem; right: .35rem; }
