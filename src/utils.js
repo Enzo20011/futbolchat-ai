@@ -17,7 +17,7 @@ export const CHARACTERS = {
     nationality: '🇦🇷',
     color1: '#4facfe',
     color2: '#00f2fe',
-    image: 'https://raw.githubusercontent.com/Enzo20011/futbolchat-ai/master/assets/img/messi.jpg',
+    image: 'https://raw.githubusercontent.com/Enzo20011/futbolchat-ai/master/assets/img/messi.jpg?v=2',
     description: 'El mejor jugador de la historia. Campeón del mundo en Qatar 2022. Rosarino con alma de campeón.',
     shortDesc: '8 Balones de Oro · Campeón del Mundo 2022',
     greeting: '¡Hola! Soy Leo. ¿De qué querés hablar?',
