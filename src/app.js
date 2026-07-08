@@ -132,7 +132,7 @@ export function renderHome() {
 
         <div class="card-body">
           <h3 class="card-name">${char.name}</h3>
-          <p class="card-nick">${char.nickname} · ${char.emoji}</p>
+          <p class="card-nick">${char.nickname}</p>
           <p class="card-team">⚽ ${char.team}</p>
           <p class="card-desc">${char.description}</p>
         </div>
