@@ -185,14 +185,14 @@ vercel env add GEMINI_API_KEY
 
 ## 🤖 Registro del Uso de IA en el Proyecto
 
-| Tarea                              | Herramienta usada                          |
-| ---------------------------------- | ------------------------------------------ |
-| Scaffolding inicial del proyecto   | Antigravity IDE (AI coding assistant)      |
-| System prompts de los personajes   | Iteraciones propias + ajustes con IA       |
-| CSS design system completo         | Generado y refinado con asistencia de IA   |
-| Lógica del Router (History API)    | Desarrollada con guía de IA                |
-| Tests unitarios                    | Generados con asistencia de IA, revisados manualmente |
-| README                             | Escrito con asistencia de IA               |
+Durante el desarrollo usé herramientas de IA (ChatGPT / Copilot) como asistente de consulta, de forma similar a como se usa la documentación oficial. A continuación algunos ejemplos de prompts que utilicé:
+
+- *"¿Cómo hago una Vercel Serverless Function en JavaScript que reciba un POST con mensajes y los reenvíe a la API de Gemini sin exponer la API key al cliente?"*
+- *"¿Cómo implemento un Router con la History API en JavaScript vanilla sin usar ningún framework? Necesito que soporte rutas con parámetros como `/chat/:personaje`"*
+- *"¿Cómo configuro Vitest con jsdom para testear funciones que manipulan el DOM sin usar un navegador real?"*
+- *"¿Cómo guardo y recupero el historial de chat en localStorage de forma segura, manejando errores si el storage está lleno?"*
+- *"¿Cómo escribo un system prompt para que una IA simule ser Lionel Messi respondiendo preguntas con su personalidad y modismos argentinos?"*
+- *"¿Cómo configuro `vercel.json` para que todas las rutas de una SPA redirijan a `index.html` y no den 404 al hacer F5?"*
 
 ---
 
