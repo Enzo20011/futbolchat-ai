@@ -119,11 +119,11 @@ export function renderHome() {
                style="animation-delay:${i * 0.1}s"
                aria-label="${char.name}">
 
-        <div class="card-avatar"
-             style="background: linear-gradient(135deg, ${char.color1}, ${char.color2})"
-             aria-hidden="true">
-          <span class="card-num">${char.number}</span>
-          <span class="card-flag">${char.nationality}</span>
+        <div class="card-avatar" aria-hidden="true">
+          ${char.image
+            ? `<img src="${char.image}" alt="${char.name}" class="card-photo" loading="lazy" onerror="this.parentElement.innerHTML='<span class=\\"card-num\\">${char.number}</span><span class=\\"card-flag\\">${char.nationality}</span>'">`
+            : `<span class="card-num">${char.number}</span><span class="card-flag">${char.nationality}</span>`
+          }
         </div>
 
         ${savedHistory
