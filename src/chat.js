@@ -64,7 +64,7 @@ export function renderChat(characterId, router) {
         </div>
 
         <h2 class="sidebar-name">${character.name}</h2>
-        <p class="sidebar-nick">${character.nickname} · ${character.emoji}</p>
+        <p class="sidebar-nick">${character.nickname}</p>
 
         <hr class="sidebar-divider">
 
