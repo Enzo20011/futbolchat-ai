@@ -124,7 +124,6 @@ export function renderHome() {
              aria-hidden="true">
           ${char.image ? `<img src="${char.image}" alt="${char.name}" class="card-photo" loading="lazy" onerror="this.style.display='none'">` : ''}
           <span class="card-num">${char.number}</span>
-          <span class="card-flag">${char.nationality}</span>
         </div>
 
         ${savedHistory
@@ -215,7 +214,7 @@ export function renderAbout() {
         ${char.number}
       </div>
       <div>
-        <p class="char-row-name">${char.name} ${char.nationality}</p>
+        <p class="char-row-name">${char.name}</p>
         <p class="char-row-desc">${char.shortDesc}</p>
       </div>
     </div>
