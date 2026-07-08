@@ -311,7 +311,7 @@ export function toggleTheme() {
 
 function _updateThemeIcon(theme) {
   const icon = document.querySelector('.theme-icon');
-  if (icon) icon.textContent = theme === 'dark' ? '🌙' : '☀️';
+  if (icon) icon.textContent = theme === 'dark' ? 'NOCHE' : 'DÍA';
 }
 
 // ============================================================
