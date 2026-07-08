@@ -469,6 +469,8 @@ body {
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 .sidebar-num { font-family: var(--font-h); font-size: 1.5rem; font-weight: 900; color: #fff; }
 
@@ -557,15 +559,16 @@ body {
 
 .chat-header-avatar {
   width: 36px; height: 36px;
-  border-radius: var(--r-sm);
+  border-radius: 50%;
   background: var(--char-grad);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-h);
-  font-size: .85rem;
-  font-weight: 900;
   color: #fff;
+  font-weight: 800;
+  position: relative;
+  overflow: hidden;
   flex-shrink: 0;
 }
 
@@ -608,17 +611,19 @@ body {
   animation: fade-up .5s ease both;
 }
 .welcome-avatar {
-  width: 72px; height: 72px;
+  width: 64px; height: 64px;
   border-radius: var(--r-md);
   background: var(--char-grad);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-h);
-  font-size: 1.6rem;
-  font-weight: 900;
   color: #fff;
-  box-shadow: 0 8px 30px rgba(0,0,0,.3);
+  font-family: var(--font-h);
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin: 0 auto 1rem auto;
+  position: relative;
+  overflow: hidden;
 }
 .welcome-title { font-family: var(--font-h); font-size: 1.3rem; font-weight: 800; }
 .welcome-greeting { color: var(--text-muted); font-size: .9rem; max-width: 280px; line-height: 1.6; }
