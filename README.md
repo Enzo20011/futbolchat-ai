@@ -185,16 +185,58 @@ vercel env add GEMINI_API_KEY
 
 ## 🤖 Registro del Uso de IA en el Proyecto
 
-Durante el desarrollo usé herramientas de IA (ChatGPT / Copilot) como asistente de consulta, de forma similar a como se usa la documentación oficial. A continuación algunos ejemplos de prompts que utilicé:
-
-- *"¿Cómo hago una Vercel Serverless Function en JavaScript que reciba un POST con mensajes y los reenvíe a la API de Gemini sin exponer la API key al cliente?"*
-- *"¿Cómo implemento un Router con la History API en JavaScript vanilla sin usar ningún framework? Necesito que soporte rutas con parámetros como `/chat/:personaje`"*
-- *"¿Cómo configuro Vitest con jsdom para testear funciones que manipulan el DOM sin usar un navegador real?"*
-- *"¿Cómo guardo y recupero el historial de chat en localStorage de forma segura, manejando errores si el storage está lleno?"*
-- *"¿Cómo escribo un system prompt para que una IA simule ser Lionel Messi respondiendo preguntas con su personalidad y modismos argentinos?"*
-- *"¿Cómo configuro `vercel.json` para que todas las rutas de una SPA redirijan a `index.html` y no den 404 al hacer F5?"*
+Durante el desarrollo usé herramientas de IA (Antigravity / ChatGPT) como asistente de consulta. A continuación los prompts utilizados junto con un resumen de la respuesta obtenida:
 
 ---
+
+### Prompt 1
+> *"¿Cómo hago una Vercel Serverless Function en JavaScript que reciba un POST con mensajes y los reenvíe a la API de Gemini sin exponer la API key al cliente?"*
+
+**Respuesta recibida:**
+La IA explicó que hay que crear un archivo dentro de `/api/` (por ejemplo `api/functions.js`). Vercel lo detecta automáticamente como una función serverless. La función debe leer `process.env.GEMINI_API_KEY` del lado del servidor, armar el cuerpo del request con el historial de mensajes en el formato que acepta Gemini (`{ contents: [...] }`), hacer un `fetch` a la URL de la API de Google AI, y devolver la respuesta al cliente. Nunca se expone la key porque el código del servidor no llega al navegador.
+
+---
+
+### Prompt 2
+> *"¿Cómo implemento un Router con la History API en JavaScript vanilla sin usar ningún framework? Necesito que soporte rutas con parámetros como `/chat/:personaje`"*
+
+**Respuesta recibida:**
+La IA mostró cómo usar `window.history.pushState()` para cambiar la URL sin recargar la página, y `window.addEventListener('popstate', ...)` para detectar cuando el usuario usa el botón atrás/adelante. Para soportar rutas con parámetros como `/chat/messi`, sugirió registrar rutas como expresiones regulares (`/^\/chat\/([a-z]+)$/`) y capturar el grupo `match[1]` para obtener el ID del personaje. También indicó que hay que interceptar los clicks en los links con `data-link` para evitar la navegación normal del navegador.
+
+---
+
+### Prompt 3
+> *"¿Cómo configuro Vitest con jsdom para testear funciones que manipulan el DOM sin usar un navegador real?"*
+
+**Respuesta recibida:**
+La IA explicó que Vitest permite configurar el entorno de ejecución en `vitest.config.js` con `environment: 'jsdom'`. Esto simula el DOM del navegador dentro de Node.js. Para usarlo hay que instalar `jsdom` como dependencia de desarrollo (`npm install -D jsdom`). En los tests se puede acceder a `document`, `window` y `localStorage` igual que en el navegador real. También recomendó usar `beforeEach` para limpiar el DOM entre pruebas con `document.body.innerHTML = ''`.
+
+---
+
+### Prompt 4
+> *"¿Cómo guardo y recupero el historial de chat en localStorage de forma segura, manejando errores si el storage está lleno?"*
+
+**Respuesta recibida:**
+La IA mostró que hay que envolver tanto el `localStorage.setItem()` como el `getItem()` en bloques `try/catch`. El `setItem` puede lanzar un `QuotaExceededError` si no hay espacio disponible. Para el `getItem`, hay que parsear el JSON con `JSON.parse()` también dentro de un `try/catch` por si el valor guardado está corrupto. Recomendó siempre verificar que el valor no sea `null` antes de parsear.
+
+---
+
+### Prompt 5
+> *"¿Cómo escribo un system prompt para que una IA simule ser Lionel Messi respondiendo preguntas con su personalidad y modismos argentinos?"*
+
+**Respuesta recibida:**
+La IA explicó que el system prompt debe definir claramente el rol ("Sos Lionel Messi"), la personalidad (humilde, tranquilo, familiar), el estilo de habla (voseo rioplatense, modismos como "mirá", "dale", "boludo" con cuidado), el conocimiento que debe tener (carrera, récords, familia, Mundial 2022) y lo que NO debe hacer (salirse del personaje, admitir que es una IA). También sugirió agregar frases o muletillas características y limitar las respuestas a temas de fútbol y su vida.
+
+---
+
+### Prompt 6
+> *"¿Cómo configuro `vercel.json` para que todas las rutas de una SPA redirijan a `index.html` y no den 404 al hacer F5?"*
+
+**Respuesta recibida:**
+La IA indicó que hay que agregar una sección `"rewrites"` en `vercel.json` con una regla que capture todas las rutas (`"source": "/(.*)"`) y las redirija a `/index.html`. Sin esta configuración, Vercel intenta buscar un archivo estático para cada ruta y devuelve 404 cuando no lo encuentra. La excepción son las rutas que empiezan con `/api/`, que deben quedar fuera de este rewrite para que sigan funcionando como Serverless Functions.
+
+---
+
 
 ## 📸 Capturas de Pantalla
 
