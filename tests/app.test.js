@@ -125,7 +125,7 @@ describe('renderHome', () => {
     renderHome();
     const app = document.getElementById('app');
     expect(app.innerHTML).toContain('Chateá con');
-    expect(app.innerHTML).toContain('las estrellas');
+    expect(app.innerHTML).toContain('las Leyendas 🏆');
   });
 
   it('renderiza las 3 tarjetas de personajes', () => {
@@ -149,10 +149,10 @@ describe('renderHome', () => {
     expect(app.innerHTML).toContain('/chat/neymar');
   });
 
-  it('contiene el badge de Google Gemini', () => {
+  it('contiene la sección de personajes', () => {
     renderHome();
     const app = document.getElementById('app');
-    expect(app.innerHTML).toContain('Google Gemini');
+    expect(app.innerHTML).toContain('Elegí tu estrella');
   });
 });
 
