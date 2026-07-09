@@ -160,28 +160,6 @@ vercel env add GEMINI_API_KEY
 
 ---
 
-## ✨ Funcionalidades
-
-### Mínimo requerido ✅
-
-- [x] SPA con 3 vistas: `/home`, `/chat/:personaje`, `/about`
-- [x] History API: URLs reales, back/forward del navegador
-- [x] Chat con diferenciación visual usuario vs personaje
-- [x] Indicador animado "escribiendo..." mientras responde la IA
-- [x] Manejo de errores si la API falla
-- [x] Historial durante la sesión
-- [x] Scroll automático al último mensaje
-- [x] Diseño mobile-first responsive (3 breakpoints)
-- [x] API key protegida en Vercel Function (nunca expuesta al cliente)
-- [x] Al menos 4 tests unitarios con Vitest
-
-### Extra Credit ✅
-
-- [x] **Extra 1:** Historial persistente en `localStorage` + botón "Borrar historial" + indicador visual
-- [x] **Extra 2:** Galería con 3 personajes distintos, cada uno con su propio system prompt
-- [x] **Extra 3:** Timestamps en mensajes · Botón copiar respuesta · Enter para enviar · Toggle dark/light mode
-
----
 
 ## 🤖 Registro del Uso de IA en el Proyecto
 
