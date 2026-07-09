@@ -198,6 +198,18 @@ Durante el desarrollo usé herramientas de IA (ChatGPT / Copilot) como asistente
 
 ## 📸 Capturas de Pantalla
 
+### Página de Inicio – Selección de jugador
+![Home](assets/screenshots/home.png)
+
+### Chat con Lionel Messi
+![Chat Messi](assets/screenshots/chat-messi.png)
+
+### Chat con Cristiano Ronaldo
+![Chat Cristiano](assets/screenshots/chat-cristiano.png)
+
+### Chat con Neymar Jr.
+![Chat Neymar](assets/screenshots/chat-neymar.png)
+
 La aplicación está disponible en: 👉 **[https://futbolchat-ai.vercel.app](https://futbolchat-ai.vercel.app)**
 
 ---
