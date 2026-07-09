@@ -230,7 +230,7 @@ La IA indicó que hay que agregar una sección `"rewrites"` en `vercel.json` con
 ### Chat con Neymar Jr.
 ![Chat Neymar](assets/screenshots/chat-neymar.png)
 
-La aplicación está disponible en: 👉 **[https://futbolchat-ai.vercel.app](https://futbolchat-ai.vercel.app)**
+
 
 ---
 
