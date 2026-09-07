@@ -293,7 +293,7 @@ export function renderAbout() {
 export function initTheme() {
   const saved = localStorage.getItem('theme') || 'dark';
   document.documentElement.setAttribute('data-theme', saved);
-  _updateThemeIcon(saved);
+  _updateThemeToggleState(saved);
 }
 
 /** Alterna entre dark y light y persiste la preferencia */
@@ -302,11 +302,15 @@ export function toggleTheme() {
   const next = current === 'dark' ? 'light' : 'dark';
   document.documentElement.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
-  _updateThemeIcon(next);
+  _updateThemeToggleState(next);
 }
 
-function _updateThemeIcon(theme) {
-  // Manejado por CSS puro con [data-theme="light"]
+/** Refleja el tema actual en el botón para lectores de pantalla */
+function _updateThemeToggleState(theme) {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  btn.setAttribute('aria-pressed', String(theme === 'light'));
+  btn.setAttribute('aria-label', theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
 }
 
 // ============================================================

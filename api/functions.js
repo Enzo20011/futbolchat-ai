@@ -62,6 +62,20 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Historial demasiado largo (máximo 50 mensajes)' });
   }
 
+  const MAX_MESSAGE_LENGTH = 2000;
+  const hasInvalidMessage = messages.some(
+    (msg) =>
+      !msg ||
+      typeof msg !== 'object' ||
+      !['user', 'assistant'].includes(msg.role) ||
+      typeof msg.content !== 'string' ||
+      msg.content.trim() === '' ||
+      msg.content.length > MAX_MESSAGE_LENGTH
+  );
+  if (hasInvalidMessage) {
+    return res.status(400).json({ error: 'Uno o más mensajes tienen un formato inválido' });
+  }
+
   const systemPrompt = SYSTEM_PROMPTS[characterId];
   if (!systemPrompt) {
     return res.status(400).json({ error: `Personaje "${characterId}" no encontrado` });
