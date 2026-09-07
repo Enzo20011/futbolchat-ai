@@ -4,17 +4,23 @@
  * Ejecutar con: npm test
  */
 
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { renderChat } from '../src/chat.js';
 
 function makeRouter() {
   return { navigate: vi.fn() };
 }
 
+const originalFetch = global.fetch;
+
 beforeEach(() => {
   localStorage.clear();
   document.body.innerHTML = `<main id="app"></main>`;
   vi.restoreAllMocks();
+});
+
+afterEach(() => {
+  global.fetch = originalFetch;
 });
 
 // ─────────────────────────────────────────────
