@@ -59,7 +59,7 @@ export function renderChat(characterId, router) {
         </a>
 
         <div class="sidebar-avatar" aria-hidden="true">
-          ${character.image ? `<img src="${character.image}" alt="${character.name}">` : `<span class="sidebar-num">${character.number}</span>`}
+          ${character.image ? `<img src="${character.image}" alt="${character.name}" onerror="this.style.display='none'">` : `<span class="sidebar-num">${character.number}</span>`}
         </div>
 
         <h2 class="sidebar-name">${character.name}</h2>
@@ -110,7 +110,7 @@ export function renderChat(characterId, router) {
         <header class="chat-header">
           <button class="btn-mobile-back" id="btn-back-mobile" aria-label="Volver">←</button>
           <div class="chat-header-avatar" aria-hidden="true">
-            ${character.image ? `<img src="${character.image}" alt="${character.name}">` : `<span>${character.number}</span>`}
+            ${character.image ? `<img src="${character.image}" alt="${character.name}" onerror="this.style.display='none'">` : `<span>${character.number}</span>`}
           </div>
           <div class="chat-header-info">
             <p class="chat-header-name">${character.name}</p>
@@ -128,7 +128,7 @@ export function renderChat(characterId, router) {
         <div class="messages-area" id="messages" role="log" aria-live="polite" aria-label="Conversación">
           <div class="chat-welcome" id="chat-welcome" aria-label="Mensaje de bienvenida">
             <div class="welcome-avatar" aria-hidden="true">
-              ${character.image ? `<img src="${character.image}" alt="${character.name}">` : `<span>${character.number}</span>`}
+              ${character.image ? `<img src="${character.image}" alt="${character.name}" onerror="this.style.display='none'">` : `<span>${character.number}</span>`}
             </div>
             <h3 class="welcome-title">¡Hola! Soy ${character.name}</h3>
             <p class="welcome-greeting">${character.greeting}</p>
@@ -309,12 +309,11 @@ function _appendMessage(role, content, senderName, timestamp, character) {
 
   const avatarHtml = isUser
     ? `<div class="msg-avatar" aria-hidden="true">👤</div>`
-    : `<img src="${character?.image || ''}" class="msg-avatar" alt="Avatar">`;
+    : `<img src="${character?.image || ''}" class="msg-avatar" alt="Avatar" onerror="this.style.display='none'">`;
 
   // Botón copiar solo para mensajes del personaje
   const copyBtnHtml = !isUser
     ? `<button class="btn-copy"
-              data-content="${escapeHtml(content)}"
               title="Copiar respuesta"
               aria-label="Copiar respuesta">📋</button>`
     : '';
@@ -353,7 +352,7 @@ function _showTypingIndicator(character) {
   el.id = 'typing-indicator';
   el.setAttribute('aria-label', `${character.name} está escribiendo`);
   el.innerHTML = `
-    <img src="${character.image}" class="msg-avatar" alt="Avatar">
+    <img src="${character.image}" class="msg-avatar" alt="Avatar" onerror="this.style.display='none'">
     <div class="msg-body">
       <div class="msg-meta">
         <span class="msg-sender">${character.name}</span>

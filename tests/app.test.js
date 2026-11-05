@@ -206,6 +206,19 @@ describe('initTheme', () => {
     initTheme();
     expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
   });
+
+  it('sincroniza aria-pressed y aria-label del botón según el tema', () => {
+    localStorage.setItem('theme', 'light');
+    initTheme();
+    const btn = document.getElementById('theme-toggle');
+    expect(btn.getAttribute('aria-pressed')).toBe('true');
+    expect(btn.getAttribute('aria-label')).toBe('Cambiar a tema oscuro');
+
+    localStorage.setItem('theme', 'dark');
+    initTheme();
+    expect(btn.getAttribute('aria-pressed')).toBe('false');
+    expect(btn.getAttribute('aria-label')).toBe('Cambiar a tema claro');
+  });
 });
 
 describe('toggleTheme', () => {
@@ -232,5 +245,18 @@ describe('toggleTheme', () => {
     toggleTheme();
     toggleTheme();
     expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
+  });
+
+  it('sincroniza aria-pressed y aria-label del botón al alternar', () => {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    const btn = document.getElementById('theme-toggle');
+
+    toggleTheme();
+    expect(btn.getAttribute('aria-pressed')).toBe('true');
+    expect(btn.getAttribute('aria-label')).toBe('Cambiar a tema oscuro');
+
+    toggleTheme();
+    expect(btn.getAttribute('aria-pressed')).toBe('false');
+    expect(btn.getAttribute('aria-label')).toBe('Cambiar a tema claro');
   });
 });
