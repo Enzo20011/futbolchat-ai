@@ -125,7 +125,7 @@ describe('renderHome', () => {
     renderHome();
     const app = document.getElementById('app');
     expect(app.innerHTML).toContain('Chateá con');
-    expect(app.innerHTML).toContain('las Leyendas 🏆');
+    expect(app.innerHTML).toContain('las Leyendas');
   });
 
   it('renderiza las 3 tarjetas de personajes', () => {

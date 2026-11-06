@@ -90,7 +90,6 @@ export class Router {
     const app = document.getElementById('app');
     app.innerHTML = `
       <div class="not-found-view">
-        <p class="not-found-emoji" aria-hidden="true">⚽</p>
         <h1 class="not-found-title">¡Fuera de juego!</h1>
         <p class="not-found-text">Esta página no existe.</p>
         <a href="/home" class="btn-primary" data-link id="btn-go-home">← Volver al inicio</a>
@@ -120,20 +119,20 @@ export function renderHome() {
                aria-label="${char.name}">
 
         <div class="card-avatar"
-             style="background: linear-gradient(135deg, ${char.color1}, ${char.color2})"
+             style="background: ${char.color1}"
              aria-hidden="true">
           ${char.image ? `<img src="${char.image}" alt="${char.name}" class="card-photo" loading="lazy" onerror="this.style.display='none'">` : ''}
           <span class="card-num">${char.number}</span>
         </div>
 
         ${savedHistory
-          ? '<div class="card-history-badge">💬 Historial guardado</div>'
+          ? '<div class="card-history-badge">Historial guardado</div>'
           : ''}
 
         <div class="card-body">
           <h3 class="card-name">${char.name}</h3>
           <p class="card-nick">${char.nickname}</p>
-          <p class="card-team">⚽ ${char.team}</p>
+          <p class="card-team">${char.team}</p>
           <p class="card-desc">${char.description}</p>
         </div>
 
@@ -156,7 +155,7 @@ export function renderHome() {
       <section class="hero" aria-labelledby="hero-title">
         <h1 class="hero-title" id="hero-title">
           <span class="hero-line">Chateá con</span>
-          <span class="hero-gradient">las Leyendas 🏆</span>
+          <span class="hero-gradient">las Leyendas</span>
         </h1>
       </section>
 
@@ -203,7 +202,7 @@ export function renderAbout() {
         </h1>
         <p class="about-sub">
           FutbolChat AI es una Single Page Application donde podés chatear con
-          Messi, Cristiano Ronaldo y Neymar usando inteligencia artificial real.
+          Messi, Cristiano Ronaldo y Neymar con respuestas generadas por inteligencia artificial.
         </p>
       </section>
 
@@ -212,8 +211,8 @@ export function renderAbout() {
 
           <h2 class="about-card-title">Inteligencia Artificial</h2>
           <p class="about-card-text">
-            Usamos la API de Google Gemini para generar respuestas precisas y naturales
-            que simulan la personalidad de cada jugador con system prompts únicos.
+            Usamos la API de Google Gemini para generar las respuestas. Cada jugador
+            tiene su propio system prompt, que define cómo habla.
           </p>
         </article>
         <article class="about-card">
@@ -241,7 +240,6 @@ export function renderAbout() {
           </p>
         </article>
         <article class="about-card">
-          <div class="about-icon" aria-hidden="true">💾</div>
           <h2 class="about-card-title">Persistencia</h2>
           <p class="about-card-text">
             El historial de cada personaje se guarda en <code>localStorage</code>.
@@ -249,7 +247,6 @@ export function renderAbout() {
           </p>
         </article>
         <article class="about-card">
-          <div class="about-icon" aria-hidden="true">🧪</div>
           <h2 class="about-card-title">Tests Unitarios</h2>
           <p class="about-card-text">
             La lógica de negocio en <code>utils.js</code> y el Router de <code>app.js</code>
@@ -259,23 +256,23 @@ export function renderAbout() {
       </div>
 
       <div class="tech-box">
-        <h2 class="tech-box-title">🛠️ Stack Tecnológico</h2>
+        <h2 class="tech-box-title">Stack Tecnológico</h2>
         <div class="tech-tags">
-          <span class="tech-tag">🌐 HTML5 Semántico</span>
-          <span class="tech-tag">🎨 CSS3 Vanilla</span>
-          <span class="tech-tag">⚡ JavaScript ES Modules</span>
-          <span class="tech-tag">🔀 History API</span>
-          <span class="tech-tag">🤖 Google Gemini 2.5</span>
-          <span class="tech-tag">☁️ Vercel Functions</span>
-          <span class="tech-tag">📡 Fetch API</span>
-          <span class="tech-tag">💾 localStorage</span>
-          <span class="tech-tag">🧪 Vitest</span>
-          <span class="tech-tag">🚀 Vercel Deploy</span>
+          <span class="tech-tag">HTML5 Semántico</span>
+          <span class="tech-tag">CSS3 Vanilla</span>
+          <span class="tech-tag">JavaScript ES Modules</span>
+          <span class="tech-tag">History API</span>
+          <span class="tech-tag">Google Gemini 2.5</span>
+          <span class="tech-tag">Vercel Functions</span>
+          <span class="tech-tag">Fetch API</span>
+          <span class="tech-tag">localStorage</span>
+          <span class="tech-tag">Vitest</span>
+          <span class="tech-tag">Vercel Deploy</span>
         </div>
       </div>
 
       <div class="tech-box">
-        <h2 class="tech-box-title">⚽ Los Personajes</h2>
+        <h2 class="tech-box-title">Los Personajes</h2>
         <div class="chars-list-about">
           ${charsListHTML}
         </div>

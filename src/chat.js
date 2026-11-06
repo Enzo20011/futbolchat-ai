@@ -68,7 +68,6 @@ export function renderChat(characterId, router) {
         <hr class="sidebar-divider">
 
         <div class="sidebar-info-row">
-          <span aria-hidden="true">⚽</span>
           <div>
             <div class="sidebar-info-label">Equipo · País</div>
             <div class="sidebar-info-value">${character.team}</div>
@@ -78,7 +77,7 @@ export function renderChat(characterId, router) {
         <hr class="sidebar-divider">
 
         <div class="sidebar-tips">
-          <p class="tips-heading">💡 Preguntas sugeridas</p>
+          <p class="tips-heading">Preguntas sugeridas</p>
           <ul class="tips-list" aria-label="Preguntas sugeridas">
             ${character.tips.map((tip) => `
               <li class="tip-item"
@@ -95,9 +94,9 @@ export function renderChat(characterId, router) {
         ${hasHistory ? `
           <hr class="sidebar-divider">
           <div class="history-info">
-            <span class="history-badge-small">💬 Historial guardado</span>
+            <span class="history-badge-small">Historial guardado</span>
             <button class="btn-clear-history" id="btn-clear-sidebar" aria-label="Borrar historial">
-              🗑️ Borrar historial
+              Borrar historial
             </button>
           </div>
         ` : ''}
@@ -120,7 +119,7 @@ export function renderChat(characterId, router) {
             </p>
           </div>
           <div class="chat-header-actions">
-            <button class="btn-icon-header" id="btn-clear-header" title="Borrar historial" aria-label="Borrar historial">🗑️</button>
+            <button class="btn-icon-header" id="btn-clear-header" title="Borrar historial" aria-label="Borrar historial">Borrar</button>
           </div>
         </header>
 
@@ -308,7 +307,7 @@ function _appendMessage(role, content, senderName, timestamp, character) {
   const safeContent = escapeHtml(content).replace(/\n/g, '<br>');
 
   const avatarHtml = isUser
-    ? `<div class="msg-avatar" aria-hidden="true">👤</div>`
+    ? `<div class="msg-avatar" aria-hidden="true">Vos</div>`
     : `<img src="${character?.image || ''}" class="msg-avatar" alt="Avatar">`;
 
   // Botón copiar solo para mensajes del personaje
@@ -316,7 +315,7 @@ function _appendMessage(role, content, senderName, timestamp, character) {
     ? `<button class="btn-copy"
               data-content="${escapeHtml(content)}"
               title="Copiar respuesta"
-              aria-label="Copiar respuesta">📋</button>`
+              aria-label="Copiar respuesta">Copiar</button>`
     : '';
 
   const el = document.createElement('div');
@@ -379,7 +378,7 @@ function _showErrorMessage(msg) {
   const el = document.createElement('div');
   el.className = 'error-toast';
   el.setAttribute('role', 'alert');
-  el.textContent = `⚠️ ${msg}`;
+  el.textContent = msg;
   container.appendChild(el);
   _scrollToBottom(container);
   setTimeout(() => el.remove(), 5000);
@@ -410,7 +409,7 @@ async function _copyToClipboard(btn, text) {
     ta.remove();
   }
   const original = btn.textContent;
-  btn.textContent = '✅';
+  btn.textContent = 'Copiado';
   btn.title = '¡Copiado!';
   setTimeout(() => {
     btn.textContent = original;

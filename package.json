@@ -1,7 +1,7 @@
 {
   "name": "futbolchat-ai",
   "version": "1.0.0",
-  "description": "SPA para chatear con estrellas del fútbol usando Groq AI y Vercel Functions",
+  "description": "SPA para chatear con personajes de fútbol simulados con Gemini y Vercel Functions",
   "type": "module",
   "scripts": {
     "build": "echo no-build-needed",

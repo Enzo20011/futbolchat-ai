@@ -229,7 +229,7 @@ describe('CHARACTERS', () => {
   });
 
   it('cada personaje tiene los campos requeridos', () => {
-    const requiredFields = ['id', 'name', 'nickname', 'number', 'team', 'color1', 'color2', 'greeting', 'emoji', 'tips'];
+    const requiredFields = ['id', 'name', 'nickname', 'number', 'team', 'color1', 'color2', 'greeting', 'tips'];
     Object.values(CHARACTERS).forEach((char) => {
       requiredFields.forEach((field) => {
         expect(char, `El personaje debe tener el campo "${field}"`).toHaveProperty(field);
